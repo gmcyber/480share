@@ -9,7 +9,7 @@ wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes ./chrome-remote-desktop_current_amd64.deb
 
 #open ssh
-apt-get install open-vm-tools-desktop openssh-server
+apt-get install -y open-vm-tools-desktop openssh-server
 cat /dev/null > /var/log/wtmp 
 cat /dev/null > /var/log/lastlog 
 rm -rf /tmp/*
@@ -30,4 +30,6 @@ systemctl stop apt-daily-upgrade.timer
 systemctl disable apt-daily-upgrade.timer
 systemctl stop apt-daily.timer
 systemctl disable apt-daily.timer
+sudo apt autoremove -y
+
 echo "remove git repo and then issue a shutdown - h now"
