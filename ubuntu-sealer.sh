@@ -1,6 +1,10 @@
 #!/bin/sh
-#script to prepare ubuntu vm for cloning
-apt-get dist-update
+#script to prepare ubuntu desktop vm for cloning
+apt-get dist-upgrade
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install --assume-yes ./google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+sudo apt install --assume-yes ./chrome-remote-desktop_current_amd64.deb
 apt-get install open-vm-tools-desktop openssh-server
 cat /dev/null > /var/log/wtmp 
 cat /dev/null > /var/log/lastlog 
