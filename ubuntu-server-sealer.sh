@@ -3,7 +3,7 @@
 apt-get dist-upgrade
 
 #open ssh
-apt-get install -y open-vm-tools-desktop openssh-server
+apt-get install -y open-vm-tools openssh-server
 cat /dev/null > /var/log/wtmp 
 cat /dev/null > /var/log/lastlog 
 rm -rf /tmp/*
