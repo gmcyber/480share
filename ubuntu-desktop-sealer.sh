@@ -31,5 +31,7 @@ systemctl disable apt-daily-upgrade.timer
 systemctl stop apt-daily.timer
 systemctl disable apt-daily.timer
 sudo apt autoremove -y
+#truncate the machine id to avoid duplicate dhcp
+echo > /etc/machine-id
 
 echo "remove git repo and then issue a shutdown - h now"
