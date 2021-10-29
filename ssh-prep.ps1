@@ -4,3 +4,11 @@ Start-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
 Set-ItemProperty "HKLM:\Software\Microsoft\Powershell\1\ShellIds" -Name ConsolePrompting -Value $true
 New-ItemProperty -Path HKLM:\SOFTWARE\OpenSSH -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+Write-Host "Create a deployer user: Enter Password"
+$pw = Read-Host -AsSecureString
+New-LocalUser -Name deployer -Password $pw -AccountNeverExpires
+Add-LocalGroupMember -Group Administrators -Member deployer
+Write-Host "Pull down unattend.xml and then sysprep the box"
+wget https://raw.githubusercontent.com/gmcyber/480share/master/unattend.xml -Outfile C:\Unattend.xml
+C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /unattend:C:\unattend.xml
+
