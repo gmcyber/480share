@@ -4,6 +4,10 @@
  # This is the sys_prep script
  # It will clear out all non-revelent information for a new VM
  #
+ # some software
+ yum install open-vm-tools
+ echo > /etc/machine-id
+ 
  # 1. Force logs to rotate and clear old.
  /usr/sbin/logrotate -f /etc/logrotate.conf
  /bin/rm -f /var/log/*-20* /var/log/*.gz
