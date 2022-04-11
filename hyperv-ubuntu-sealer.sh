@@ -3,7 +3,7 @@
 apt-get dist-upgrade
 
 #open ssh
-apt-get install -y hyperv-daemons
+apt-get install -y linux-tools-virtual linux-cloud-tools-virtual
 cat /dev/null > /var/log/wtmp 
 cat /dev/null > /var/log/lastlog 
 rm -rf /tmp/*
