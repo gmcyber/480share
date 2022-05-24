@@ -5,7 +5,8 @@
  # It will clear out all non-revelent information for a new VM
  #
  # some software
- yum install open-vm-tools
+ yum update -y
+ yum install open-vm-tools -y
  echo > /etc/machine-id
  
  # 1. Force logs to rotate and clear old.
