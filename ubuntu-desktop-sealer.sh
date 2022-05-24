@@ -21,7 +21,7 @@ cat <<EOL | sudo tee /etc/rc.local
 test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
 exit 0
 EOL
-echo ubuntu > /etc/hostname
+#echo ubuntu > /etc/hostname
 apt-get clean
 history -c
 history -w
